@@ -21,7 +21,7 @@ public class SuhuTest {
 	
 	@DisplayName("Positive test : Hitung temperatur celcius")
 	@ParameterizedTest
-	@CsvFileSource(resources = "dataTemperatur.csv", delimiter = ',', numLinesToSkip = 1)
+	@CsvFileSource(resources = "data_suhu.csv", delimiter = ',', numLinesToSkip = 1)
 	public void testTemperatur(int no, double a, double expected) {
 		
 		double result = suhu.fahren(a);

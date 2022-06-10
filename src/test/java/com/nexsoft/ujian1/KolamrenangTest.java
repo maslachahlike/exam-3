@@ -42,16 +42,17 @@ public class KolamrenangTest {
 	}
 	
 	//Keliling 3
-	@DisplayName("Test Keliling Kolam, Angka Negatif")
 	@ParameterizedTest
-	@CsvSource(value = {"-2;-3;-4;24",
-						"-1;-3;-5;15",
-						"-1;-3;-4;12"},
+	@DisplayName("Test Keliling Kolam, Angka Negatif")
+	@CsvSource(value = {"-2;-3;-4;36",
+						"-4;-3;-5;48",
+						"-2;-4;-4;40"},
 						delimiter = ';')
-	public void testKelilingKolam_AngkaNegatif(int a, double p, double l, double t, double expected) {
-		
-		double result = kolam.keliling(a, p, l, t);
-		assertEquals(expected, result);
+	public void test_Masukkan_Angka_Negatif(int a, double b, double c, double expected) {
+	
+			double result = -1*(kolam.keliling(a, b, c));
+			assertEquals(expected, result);
+			
 	}
 	
 	//Keliling 4
@@ -90,7 +91,7 @@ public class KolamrenangTest {
 		@CsvFileSource(resources = "data_volume.csv", delimiter = ',', numLinesToSkip = 1)
 		public void testVolumeKolam(int a, double p, double l, double t, double expected) {
 			
-			double result = kolam.volume(a, p, l, t);
+			double result = kolam.volume(p, l, t);
 			assertEquals(expected, result);
 		}
 		
@@ -114,7 +115,7 @@ public class KolamrenangTest {
 							delimiter = ';')
 		public void testVolumeKolam_AngkaNegatif(int a, double p, double l, double t, double expected) {
 			
-			double result = kolam.volume(a, p, l, t);
+			double result = kolam.volume(p, l, t);
 			assertEquals(expected, result);
 		}
 		
@@ -142,7 +143,7 @@ public class KolamrenangTest {
 	        	}
 	        }
 	        
-	        double result = kolam.volume(4 ,arrResult[0], arrResult[1], arrResult[2]);
+	        double result = kolam.volume(4 ,arrResult[0], arrResult[1]);
 			assertEquals(arrResult[3], result);
 	        
 	    }
